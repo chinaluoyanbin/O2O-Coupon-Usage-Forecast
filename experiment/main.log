@@ -190,6 +190,10 @@
 [2018-08-10 08:21:15,068]: Params: {'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': 30, 'max_features': 19, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 31, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 1400, 'n_jobs': 1, 'oob_score': False, 'random_state': 0, 'verbose': 32, 'warm_start': False}
 [2018-08-10 08:21:15,073]: Accuracy: 0.916970
 [2018-08-10 08:21:15,088]: AUC: 0.887655
+[2018-08-10 09:21:14,922]: Estimator: rf
+[2018-08-10 09:21:14,923]: Params: {'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': 30, 'max_features': 19, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 31, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 1800, 'n_jobs': 1, 'oob_score': False, 'random_state': 0, 'verbose': 32, 'warm_start': False}
+[2018-08-10 09:21:14,929]: Accuracy: 0.916908
+[2018-08-10 09:21:14,948]: AUC: 0.887640
 [2018-08-10 15:55:05,322]: Model: gbdt
 [2018-08-10 15:55:05,323]: means: [0.86744061 0.87202897 0.87613908 0.87870753 0.88072423 0.88188517
  0.88322949 0.88377023 0.88433107]
@@ -215,3 +219,143 @@
 [2018-08-10 16:30:17,343]: best params: {'max_features': 26}
 [2018-08-10 16:30:17,343]: best scores: 0.8828580734476505
 [2018-08-10 16:30:17,343]: --------------------------------------------------------
+[2018-08-10 19:35:02,207]: Model: gbdt
+[2018-08-10 19:35:02,222]: means: [0.87902817 0.88272496 0.88449965 0.88558832 0.88673347 0.88749019
+ 0.88796442 0.88814905 0.88842498]
+[2018-08-10 19:35:02,222]: stds: [0.01059691 0.01041182 0.0102438  0.01033115 0.01019435 0.01021895
+ 0.01042597 0.01036863 0.01054866]
+[2018-08-10 19:35:02,238]: scores: [mean: 0.87903, std: 0.01060, params: {'n_estimators': 20}, mean: 0.88272, std: 0.01041, params: {'n_estimators': 30}, mean: 0.88450, std: 0.01024, params: {'n_estimators': 40}, mean: 0.88559, std: 0.01033, params: {'n_estimators': 50}, mean: 0.88673, std: 0.01019, params: {'n_estimators': 60}, mean: 0.88749, std: 0.01022, params: {'n_estimators': 70}, mean: 0.88796, std: 0.01043, params: {'n_estimators': 80}, mean: 0.88815, std: 0.01037, params: {'n_estimators': 90}, mean: 0.88842, std: 0.01055, params: {'n_estimators': 100}]
+[2018-08-10 19:35:02,238]: best params: {'n_estimators': 100}
+[2018-08-10 19:35:02,238]: best scores: 0.888424981707141
+[2018-08-10 19:35:02,238]: --------------------------------------------------------
+[2018-08-10 19:51:26,139]: Model: gbdt
+[2018-08-10 19:51:26,139]: means: [0.87576279 0.87551183 0.87692521 0.87744312 0.87746764 0.87759476
+ 0.87776914]
+[2018-08-10 19:51:26,139]: stds: [0.01075405 0.01164785 0.01101014 0.01098012 0.01080904 0.01132338
+ 0.01117264]
+[2018-08-10 19:51:26,139]: scores: [mean: 0.87576, std: 0.01075, params: {'n_estimators': 20}, mean: 0.87551, std: 0.01165, params: {'n_estimators': 30}, mean: 0.87693, std: 0.01101, params: {'n_estimators': 40}, mean: 0.87744, std: 0.01098, params: {'n_estimators': 50}, mean: 0.87747, std: 0.01081, params: {'n_estimators': 60}, mean: 0.87759, std: 0.01132, params: {'n_estimators': 70}, mean: 0.87777, std: 0.01117, params: {'n_estimators': 80}]
+[2018-08-10 19:51:26,139]: best params: {'n_estimators': 80}
+[2018-08-10 19:51:26,139]: best scores: 0.8777691367807126
+[2018-08-10 19:51:26,139]: --------------------------------------------------------
+[2018-08-10 20:22:05,892]: Model: gbdt
+[2018-08-10 20:22:05,923]: means: [0.88744648 0.88778046 0.88714282 0.8883958  0.8879999 ]
+[2018-08-10 20:22:05,923]: stds: [0.00976116 0.00953289 0.01075726 0.01014805 0.01062195]
+[2018-08-10 20:22:05,923]: scores: [mean: 0.88745, std: 0.00976, params: {'subsample': 0.7}, mean: 0.88778, std: 0.00953, params: {'subsample': 0.75}, mean: 0.88714, std: 0.01076, params: {'subsample': 0.8}, mean: 0.88840, std: 0.01015, params: {'subsample': 0.85}, mean: 0.88800, std: 0.01062, params: {'subsample': 0.9}]
+[2018-08-10 20:22:05,923]: best params: {'subsample': 0.85}
+[2018-08-10 20:22:05,923]: best scores: 0.8883958039752472
+[2018-08-10 20:22:05,923]: --------------------------------------------------------
+[2018-08-10 20:34:23,555]: Model: gbdt
+[2018-08-10 20:34:23,555]: means: [0.88579324 0.88606512 0.88554055 0.88708179 0.88687689 0.88747931
+ 0.88709939 0.88806933 0.887112   0.88593235]
+[2018-08-10 20:34:23,555]: stds: [0.00995283 0.01027317 0.00890662 0.00931921 0.00939244 0.01019439
+ 0.01020905 0.01006074 0.01024989 0.0090432 ]
+[2018-08-10 20:34:23,555]: scores: [mean: 0.88579, std: 0.00995, params: {'max_features': 12}, mean: 0.88607, std: 0.01027, params: {'max_features': 15}, mean: 0.88554, std: 0.00891, params: {'max_features': 18}, mean: 0.88708, std: 0.00932, params: {'max_features': 21}, mean: 0.88688, std: 0.00939, params: {'max_features': 24}, mean: 0.88748, std: 0.01019, params: {'max_features': 27}, mean: 0.88710, std: 0.01021, params: {'max_features': 30}, mean: 0.88807, std: 0.01006, params: {'max_features': 33}, mean: 0.88711, std: 0.01025, params: {'max_features': 36}, mean: 0.88593, std: 0.00904, params: {'max_features': 39}]
+[2018-08-10 20:34:23,555]: best params: {'max_features': 33}
+[2018-08-10 20:34:23,555]: best scores: 0.8880693333844386
+[2018-08-10 20:34:23,555]: --------------------------------------------------------
+[2018-08-10 21:05:29,017]: Model: gbdt
+[2018-08-10 21:05:29,067]: means: [0.88806933 0.88667517 0.88744417 0.88739581 0.88794424 0.88797996
+ 0.88740807 0.88680203 0.88731892 0.88756243]
+[2018-08-10 21:05:29,067]: stds: [0.01006074 0.010402   0.01001622 0.01026549 0.01046195 0.01041427
+ 0.01071683 0.0108299  0.01066819 0.01041565]
+[2018-08-10 21:05:29,068]: scores: [mean: 0.88807, std: 0.01006, params: {'min_samples_leaf': 1}, mean: 0.88668, std: 0.01040, params: {'min_samples_leaf': 11}, mean: 0.88744, std: 0.01002, params: {'min_samples_leaf': 21}, mean: 0.88740, std: 0.01027, params: {'min_samples_leaf': 31}, mean: 0.88794, std: 0.01046, params: {'min_samples_leaf': 41}, mean: 0.88798, std: 0.01041, params: {'min_samples_leaf': 51}, mean: 0.88741, std: 0.01072, params: {'min_samples_leaf': 61}, mean: 0.88680, std: 0.01083, params: {'min_samples_leaf': 71}, mean: 0.88732, std: 0.01067, params: {'min_samples_leaf': 81}, mean: 0.88756, std: 0.01042, params: {'min_samples_leaf': 91}]
+[2018-08-10 21:05:29,085]: best params: {'min_samples_leaf': 1}
+[2018-08-10 21:05:29,085]: best scores: 0.8880693333844386
+[2018-08-10 21:05:29,085]: --------------------------------------------------------
+[2018-08-10 21:22:58,970]: Model: gbdt
+[2018-08-10 21:22:59,034]: means: [0.88797996 0.88797996 0.88797996 0.88797996 0.88797996 0.88797996
+ 0.88797996 0.88797996 0.88797996 0.88797996 0.88797996]
+[2018-08-10 21:22:59,034]: stds: [0.01041427 0.01041427 0.01041427 0.01041427 0.01041427 0.01041427
+ 0.01041427 0.01041427 0.01041427 0.01041427 0.01041427]
+[2018-08-10 21:22:59,035]: scores: [mean: 0.88798, std: 0.01041, params: {'min_samples_split': 2}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 12}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 22}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 32}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 42}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 52}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 62}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 72}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 82}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 92}, mean: 0.88798, std: 0.01041, params: {'min_samples_split': 102}]
+[2018-08-10 21:22:59,036]: best params: {'min_samples_split': 2}
+[2018-08-10 21:22:59,036]: best scores: 0.8879799579948348
+[2018-08-10 21:22:59,036]: --------------------------------------------------------
+[2018-08-10 21:31:01,843]: Model: gbdt
+[2018-08-10 21:31:01,865]: means: [0.88797996 0.88765294 0.88770152]
+[2018-08-10 21:31:01,866]: stds: [0.01041427 0.01018037 0.01000838]
+[2018-08-10 21:31:01,866]: scores: [mean: 0.88798, std: 0.01041, params: {'min_samples_split': 102}, mean: 0.88765, std: 0.01018, params: {'min_samples_split': 202}, mean: 0.88770, std: 0.01001, params: {'min_samples_split': 302}]
+[2018-08-10 21:31:01,866]: best params: {'min_samples_split': 102}
+[2018-08-10 21:31:01,866]: best scores: 0.8879799579948348
+[2018-08-10 21:31:01,866]: --------------------------------------------------------
+[2018-08-10 22:40:48,492]: Model: gbdt
+[2018-08-10 22:40:48,539]: means: [0.89084648 0.88901121 0.88843063 0.88606475 0.88260727 0.87910395
+ 0.87714853 0.87230242 0.86868211 0.86398357]
+[2018-08-10 22:40:48,539]: stds: [0.01038434 0.00996146 0.01040012 0.01002367 0.01070778 0.00963158
+ 0.00819789 0.00940213 0.01025584 0.01027653]
+[2018-08-10 22:40:48,539]: scores: [mean: 0.89085, std: 0.01038, params: {'max_depth': 5}, mean: 0.88901, std: 0.00996, params: {'max_depth': 6}, mean: 0.88843, std: 0.01040, params: {'max_depth': 7}, mean: 0.88606, std: 0.01002, params: {'max_depth': 8}, mean: 0.88261, std: 0.01071, params: {'max_depth': 9}, mean: 0.87910, std: 0.00963, params: {'max_depth': 10}, mean: 0.87715, std: 0.00820, params: {'max_depth': 11}, mean: 0.87230, std: 0.00940, params: {'max_depth': 12}, mean: 0.86868, std: 0.01026, params: {'max_depth': 13}, mean: 0.86398, std: 0.01028, params: {'max_depth': 14}]
+[2018-08-10 22:40:48,539]: best params: {'max_depth': 5}
+[2018-08-10 22:40:48,539]: best scores: 0.8908464814139819
+[2018-08-10 22:40:48,539]: --------------------------------------------------------
+[2018-08-11 14:17:53,841]: Model: gbdt
+[2018-08-11 14:17:53,856]: means: [0.87173682 0.88199997 0.88797996 0.88995431 0.89084648]
+[2018-08-11 14:17:53,856]: stds: [0.01122523 0.01035544 0.01041427 0.01044307 0.01038434]
+[2018-08-11 14:17:53,856]: scores: [mean: 0.87174, std: 0.01123, params: {'max_depth': 1}, mean: 0.88200, std: 0.01036, params: {'max_depth': 2}, mean: 0.88798, std: 0.01041, params: {'max_depth': 3}, mean: 0.88995, std: 0.01044, params: {'max_depth': 4}, mean: 0.89085, std: 0.01038, params: {'max_depth': 5}]
+[2018-08-11 14:17:53,887]: best params: {'max_depth': 5}
+[2018-08-11 14:17:53,887]: best scores: 0.8908464814139819
+[2018-08-11 14:17:53,887]: --------------------------------------------------------
+[2018-08-11 14:51:17,258]: Model: gbdt
+[2018-08-11 14:51:17,289]: means: [0.89127722 0.89080838 0.89074929 0.89084648 0.89084648 0.89010766
+ 0.89091314 0.89091314 0.89091314 0.89043315 0.89043315 0.89043315]
+[2018-08-11 14:51:17,289]: stds: [0.01014979 0.00966063 0.00955752 0.01038434 0.01038434 0.01043828
+ 0.00934303 0.00934303 0.00934303 0.01009527 0.01009527 0.01009527]
+[2018-08-11 14:51:17,289]: scores: [mean: 0.89128, std: 0.01015, params: {'min_samples_leaf': 50, 'min_samples_split': 101}, mean: 0.89081, std: 0.00966, params: {'min_samples_leaf': 50, 'min_samples_split': 102}, mean: 0.89075, std: 0.00956, params: {'min_samples_leaf': 50, 'min_samples_split': 103}, mean: 0.89085, std: 0.01038, params: {'min_samples_leaf': 51, 'min_samples_split': 101}, mean: 0.89085, std: 0.01038, params: {'min_samples_leaf': 51, 'min_samples_split': 102}, mean: 0.89011, std: 0.01044, params: {'min_samples_leaf': 51, 'min_samples_split': 103}, mean: 0.89091, std: 0.00934, params: {'min_samples_leaf': 52, 'min_samples_split': 101}, mean: 0.89091, std: 0.00934, params: {'min_samples_leaf': 52, 'min_samples_split': 102}, mean: 0.89091, std: 0.00934, params: {'min_samples_leaf': 52, 'min_samples_split': 103}, mean: 0.89043, std: 0.01010, params: {'min_samples_leaf': 53, 'min_samples_split': 101}, mean: 0.89043, std: 0.01010, params: {'min_samples_leaf': 53, 'min_samples_split': 102}, mean: 0.89043, std: 0.01010, params: {'min_samples_leaf': 53, 'min_samples_split': 103}]
+[2018-08-11 14:51:17,289]: best params: {'min_samples_leaf': 50, 'min_samples_split': 101}
+[2018-08-11 14:51:17,289]: best scores: 0.8912772216751783
+[2018-08-11 14:51:17,289]: --------------------------------------------------------
+[2018-08-11 16:18:21,660]: Estimator: gbdt
+[2018-08-11 16:18:21,707]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.3, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'verbose': 24, 'warm_start': False}
+[2018-08-11 16:18:21,738]: Accuracy: 0.917455
+[2018-08-11 16:18:21,769]: AUC: 0.886252
+[2018-08-11 16:31:36,361]: Estimator: gbdt
+[2018-08-11 16:31:36,383]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.1, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 300, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'verbose': 24, 'warm_start': False}
+[2018-08-11 16:31:36,391]: Accuracy: 0.918090
+[2018-08-11 16:31:36,410]: AUC: 0.888521
+[2018-08-11 08:48:21,584]: Estimator: gbdt
+[2018-08-11 08:48:21,585]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.05, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 600, 'n_iter_no_change': None, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 2, 'warm_start': False}
+[2018-08-11 08:48:21,591]: Accuracy: 0.918363
+[2018-08-11 08:48:21,615]: AUC: 0.889089
+[2018-08-11 17:44:27,718]: Estimator: gbdt
+[2018-08-11 17:44:27,718]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.01, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 3000, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'verbose': 24, 'warm_start': False}
+[2018-08-11 17:44:27,734]: Accuracy: 0.918438
+[2018-08-11 17:44:27,765]: AUC: 0.889443
+[2018-08-11 19:36:25,706]: Estimator: gbdt
+[2018-08-11 19:36:25,707]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.01, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 3200, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'verbose': 24, 'warm_start': False}
+[2018-08-11 19:36:25,714]: Accuracy: 0.918413
+[2018-08-11 19:36:25,732]: AUC: 0.889686
+[2018-08-11 11:31:27,727]: Estimator: gbdt
+[2018-08-11 11:31:27,728]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.01, 'loss': 'deviance', 'max_depth': 5, 'max_features': 33, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 50, 'min_samples_split': 101, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 3400, 'n_iter_no_change': None, 'presort': 'auto', 'random_state': 0, 'subsample': 0.85, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 2, 'warm_start': False}
+[2018-08-11 11:31:27,735]: Accuracy: 0.918687
+[2018-08-11 11:31:27,761]: AUC: 0.889872
+[2018-08-11 20:20:12,406]: Model: xgb
+[2018-08-11 20:20:12,515]: means: [0.8682192  0.87321205 0.87709957 0.88006423 0.88210875 0.88363009
+ 0.88487379 0.88600608]
+[2018-08-11 20:20:12,531]: stds: [0.0122645  0.01211422 0.01155933 0.01141361 0.01108544 0.01079041
+ 0.01061331 0.01061238]
+[2018-08-11 20:20:12,531]: scores: [mean: 0.86822, std: 0.01226, params: {'n_estimators': 30}, mean: 0.87321, std: 0.01211, params: {'n_estimators': 40}, mean: 0.87710, std: 0.01156, params: {'n_estimators': 50}, mean: 0.88006, std: 0.01141, params: {'n_estimators': 60}, mean: 0.88211, std: 0.01109, params: {'n_estimators': 70}, mean: 0.88363, std: 0.01079, params: {'n_estimators': 80}, mean: 0.88487, std: 0.01061, params: {'n_estimators': 90}, mean: 0.88601, std: 0.01061, params: {'n_estimators': 100}]
+[2018-08-11 20:20:12,531]: best params: {'n_estimators': 100}
+[2018-08-11 20:20:12,531]: best scores: 0.8860060844472396
+[2018-08-11 20:20:12,531]: --------------------------------------------------------
+[2018-08-11 20:28:33,705]: Model: xgb
+[2018-08-11 20:28:33,736]: means: [0.88994165 0.89038944 0.8908055 ]
+[2018-08-11 20:28:33,736]: stds: [0.00988423 0.01019657 0.01053216]
+[2018-08-11 20:28:33,736]: scores: [mean: 0.88994, std: 0.00988, params: {'n_estimators': 80}, mean: 0.89039, std: 0.01020, params: {'n_estimators': 90}, mean: 0.89081, std: 0.01053, params: {'n_estimators': 100}]
+[2018-08-11 20:28:33,736]: best params: {'n_estimators': 100}
+[2018-08-11 20:28:33,736]: best scores: 0.8908055028671474
+[2018-08-11 20:28:33,736]: --------------------------------------------------------
+[2018-08-11 21:15:39,905]: Model: xgb
+[2018-08-11 21:15:39,944]: means: [0.88944528 0.88993384 0.8895523  0.88832269 0.88695514 0.88635454
+ 0.88569095 0.8839629  0.8833089  0.88242279]
+[2018-08-11 21:15:39,944]: stds: [0.01000039 0.00996375 0.01022133 0.01111415 0.01093589 0.0111191
+ 0.01002741 0.0110909  0.01075887 0.01092462]
+[2018-08-11 21:15:39,944]: scores: [mean: 0.88945, std: 0.01000, params: {'gamma': 1}, mean: 0.88993, std: 0.00996, params: {'gamma': 11}, mean: 0.88955, std: 0.01022, params: {'gamma': 21}, mean: 0.88832, std: 0.01111, params: {'gamma': 31}, mean: 0.88696, std: 0.01094, params: {'gamma': 41}, mean: 0.88635, std: 0.01112, params: {'gamma': 51}, mean: 0.88569, std: 0.01003, params: {'gamma': 61}, mean: 0.88396, std: 0.01109, params: {'gamma': 71}, mean: 0.88331, std: 0.01076, params: {'gamma': 81}, mean: 0.88242, std: 0.01092, params: {'gamma': 91}]
+[2018-08-11 21:15:39,959]: best params: {'gamma': 11}
+[2018-08-11 21:15:39,959]: best scores: 0.889933844573418
+[2018-08-11 21:15:39,959]: --------------------------------------------------------
+[2018-08-11 21:32:15,447]: Model: xgb
+[2018-08-11 21:32:15,462]: means: [0.88983836 0.88986108 0.88981037 0.88988036 0.889798   0.88971243]
+[2018-08-11 21:32:15,462]: stds: [0.01000208 0.01006947 0.01009233 0.01009829 0.01009148 0.01005696]
+[2018-08-11 21:32:15,478]: scores: [mean: 0.88984, std: 0.01000, params: {'gamma': 0.05}, mean: 0.88986, std: 0.01007, params: {'gamma': 0.1}, mean: 0.88981, std: 0.01009, params: {'gamma': 0.15}, mean: 0.88988, std: 0.01010, params: {'gamma': 0.2}, mean: 0.88980, std: 0.01009, params: {'gamma': 0.3}, mean: 0.88971, std: 0.01006, params: {'gamma': 0.4}]
+[2018-08-11 21:32:15,478]: best params: {'gamma': 0.2}
+[2018-08-11 21:32:15,478]: best scores: 0.8898803581668717
+[2018-08-11 21:32:15,478]: --------------------------------------------------------

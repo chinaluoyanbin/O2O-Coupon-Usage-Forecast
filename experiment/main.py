@@ -1057,16 +1057,16 @@ def get_dataset():
     dataset3.Distance.replace('null', -999, inplace=True)
     dataset3.Distance = dataset3.Distance.astype(int)
 
-    # # 填充缺失值
-    # # 填0的
-    # fill_zero_columns = ['u6', 'u7', 'u11', 'u12', 'u15', 'u22', 'u24', 'u25',
-    #                      'uc1', 'uc2', 'um4', 'um5', 'um6', 'um9', 'um10', 'ud1',
-    #                      'ud2', 'ud3', 'm1', 'm2', 'm3', 'm4', 'm6', 'm12', 'm13',
-    #                      'm16', 'm17', 'c1', 'c2', 'c4', 'c7', 'c9', 'on_u1', 
-    #                      'on_u8']
-    # dataset1[fill_zero_columns].fillna(0, inplace=True)
-    # dataset2[fill_zero_columns].fillna(0, inplace=True)
-    # dataset3[fill_zero_columns].fillna(0, inplace=True)
+    # 填充缺失值
+    # 填0的
+    fill_zero_columns = ['u6', 'u7', 'u11', 'u12', 'u15', 'u22', 'u24', 'u25', 'u30',
+                         'uc1', 'uc2', 'um4', 'um5', 'um6', 'um9', 'um10', 'um11', 'um12', 'ud1',
+                         'ud2', 'ud3', 'm1', 'm2', 'm3', 'm4', 'm6', 'm12', 'm13',
+                         'm16', 'm17', 'c1', 'c2', 'c4', 'c7', 'c9', 'on_u1',
+                         'on_u8']
+    dataset1[fill_zero_columns].fillna(0, inplace=True)
+    dataset2[fill_zero_columns].fillna(0, inplace=True)
+    dataset3[fill_zero_columns].fillna(0, inplace=True)
     # 其他填-999
     dataset1.fillna(-999, inplace=True)
     dataset2.fillna(-999, inplace=True)
@@ -1101,7 +1101,7 @@ def read_dataset():
             dataset3.to_csv(dataset3_path, index=False)
             Submission.to_csv(Submission_path, index=False)
 
-        print('...gread dataset complete...')
+        print('...read dataset complete...')
 
         return dataset1, dataset2, dataset3, Submission
 
@@ -1154,17 +1154,42 @@ def get_model_parameter(model='rf', search=False):
     elif model == 'gbdt':
         estimator = GradientBoostingClassifier(
             random_state=0,
-            verbose=0,
-            learning_rate=0.1,
-            n_estimators=100,
-            subsample=0.9
+            verbose=24,
+            learning_rate=0.01,
+            n_estimators=3400,
+            subsample=0.85,
+            max_features=33,
+            min_samples_leaf=50,
+            min_samples_split=101,
+            max_depth=5
         )
         param_grid = {
-            # 'n_estimators': [i for i in range(20, 101, 10)]
-            # 'subsample': [.6, .7, .75, .8, .85, .9]
-            'max_features': [i for i in range(12, 28, 2)]
+            # 'n_estimators': [i for i in range(20, 81, 10)],
+            # 'subsample': [.7, .75, .8, .85, .9]
+            # 'max_features': [i for i in range(12, 40, 3)]
+            # 'min_samples_leaf': [i for i in range(1, 101, 10)]
+            # 'min_samples_split': [102, 202, 302]
+            # 'max_depth': [i for i in range(5, 15)]
+            # 'max_depth': [1, 2, 3, 4, 5]
+            # 'min_samples_split': [101, 102, 103],
+            # 'min_samples_leaf': [50, 51, 52, 53]
+            'max_feature': [i for i in range(31, 35)]
         }
-    
+    elif model == 'xgb':
+        estimator = XGBClassifier(
+            random_state=0,
+            booster='gbtree',
+            objective='rank:pairwise',
+            tree_method='exact',
+            learning_rate=0.3,
+            n_estimators=100,
+            gamma=0.2
+        )
+        param_grid = {
+            # 'n_estimators': [i for i in range(80, 101, 10)]
+            # 'gamma': [.05, .1, .15, .2, .3, .4]
+            'min_child_weight': [i for i in range(1, 102, 10)]
+        }
     # Grid Search
     if search:
         X_train, Y_train = get_model_input(set_param=True)
@@ -1204,6 +1229,8 @@ def training(model='rf'):
     X_train, Y_train, X_test, Y_test = get_model_input(train=True)
     if model == 'rf':
         estimator = get_model_parameter(model='rf')
+    elif model == 'gbdt':
+        estimator = get_model_parameter(model='gbdt')
     estimator.fit(X_train, Y_train)
     Y_pred = estimator.predict(X_test)
     Y_pred_prob = estimator.predict_proba(X_test)[:, 1]
@@ -1218,10 +1245,12 @@ def prediction(model='rf'):
     X_train, Y_train, X_pred, Submission = get_model_input(pred=True)
     if model == 'rf':
         estimator = get_model_parameter(model='rf')
+    elif model == 'gbdt':
+        estimator = get_model_parameter(model='gbdt')
     estimator.fit(X_train, Y_train)
     Y_pred_prob = estimator.predict_proba(X_pred)[:, 1]
     Submission['Proba'] = Y_pred_prob
-    Submission.to_csv(model+'_preds.csv', index=False, header=False)
+    Submission.to_csv(model + '_preds.csv', index=False, header=False)
 
 
 if __name__ == '__main__':
@@ -1233,10 +1262,6 @@ if __name__ == '__main__':
     logger_output.setFormatter(formatter)
     logger.addHandler(logger_output)
 
-    # estimator = get_model_parameter(model='rf', search=True)
-    # training(model='rf')
-    # prediction(model='rf')
-
-    estimator = get_model_parameter(model='gbdt', search=True)
-    # training(model='rf')
-    # prediction(model='rf')
+    estimator = get_model_parameter(model='xgb', search=True)
+    # training(model='gbdt')
+    # prediction(model='gbdt')
