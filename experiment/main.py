@@ -980,7 +980,7 @@ def get_offline_feature(dataset, feature):
     t.o16 = t.o16.apply(get_date_gap)
     dataset = pd.merge(dataset, t[['User_id', 'o16']], how='left', on='User_id')
 
-    del t, t1, consume_use_coupon, consume_common, receive_coupon_not_consume, receive_coupon, consume    
+    del t, t1, consume_use_coupon, consume_common, receive_coupon_not_consume, receive_coupon, consume
     print('...get offline feature complete...')
     return dataset
 
@@ -990,7 +990,6 @@ def get_online_feature(dataset, feature):
     """
     4. 提取线上特征
     """
-    consume_use_coupon = feature[feature.Coupon_id != 'null']
 
     # 用户线上操作次数
     # on_u1
@@ -1069,10 +1068,14 @@ def get_online_feature(dataset, feature):
     dataset.u4.fillna(0, inplace=True)
     dataset['on_u13'] = dataset.u4 / (dataset.u4 + dataset.on_u6)
 
-    # 
+    # 用户线上普通消费次数
+    # on_u14
+    t = feature[(feature.Action == 1) & (feature.Coupon_id == 'null')][['User_id']]
+    t['on_u14'] = 1
+    t = t.groupby('User_id').agg('sum').reset_index()
+    dataset = pd.merge(dataset, t, how='left', on='User_id')
     
     del t
-    
     print('...get online feature complete...')
     
     return dataset
@@ -1269,18 +1272,18 @@ def get_model_parameter(model='rf', search=False):
         }
     elif model == 'gbdt':
         estimator = GradientBoostingClassifier(
-            random_state=0,
-            verbose=2,
-            learning_rate=0.01,
+            random_state=621,
+            verbose=0,
+            learning_rate=0.2,
             n_estimators=3400,
-            subsample=0.85,
-            max_features=33,
+            subsample=0.8,
+            max_features='sqrt',
             min_samples_leaf=50,
-            min_samples_split=101,
-            max_depth=5
+            min_samples_split=200,
+            max_depth=8
         )
         param_grid = {
-            # 'n_estimators': [i for i in range(60, 121, 10)]
+            'n_estimators': [i for i in range(60, 121, 10)]
             # 'subsample': [.7, .75, .8, .85, .9]
             # 'max_features': [i for i in range(8, 25, 2)]
             # 'min_samples_leaf': [i for i in range(1, 91, 10)]
@@ -1289,7 +1292,7 @@ def get_model_parameter(model='rf', search=False):
             # 'max_depth': [i for i in range(5, 11)]
             # 'max_depth': [1, 2, 3, 4, 5]
             # 'min_samples_split': [i for i in range(80, 85)]
-            'min_samples_leaf': [20, 21, 22]
+            # 'min_samples_leaf': [20, 21, 22]
             # 'max_feature': [23, 24, 25, 26, 27]
         }
     elif model == 'xgb':
@@ -1395,6 +1398,6 @@ if __name__ == '__main__':
     # print(dataset1.shape, dataset2.shape, dataset3.shape)
     # analyze_dataset()
 
-    # estimator = get_model_parameter(model='gbdt', search=True)
+    estimator = get_model_parameter(model='gbdt', search=True)
     # training(model='gbdt')
-    prediction(model='gbdt')
+    # prediction(model='gbdt')

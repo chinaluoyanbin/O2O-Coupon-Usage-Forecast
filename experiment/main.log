@@ -1027,3 +1027,12 @@
 [2018-08-13 09:06:07,322]: Params: {'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.01, 'loss': 'deviance', 'max_depth': 6, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 21, 'min_samples_split': 82, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 1600, 'n_iter_no_change': None, 'presort': 'auto', 'random_state': 0, 'subsample': 1.0, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 2, 'warm_start': False}
 [2018-08-13 09:06:07,328]: Accuracy: 0.901269
 [2018-08-13 09:06:07,349]: AUC: 0.870296
+[2018-08-19 17:32:03,502]: Model: gbdt
+[2018-08-19 17:32:03,875]: means: [0.88669972 0.88464414 0.88186646 0.88027259 0.87848432 0.87902701
+ 0.87763939]
+[2018-08-19 17:32:03,906]: stds: [0.09369932 0.09399076 0.09594296 0.09572532 0.09468698 0.09578627
+ 0.09744995]
+[2018-08-19 17:32:03,987]: scores: [mean: 0.88670, std: 0.09370, params: {'n_estimators': 60}, mean: 0.88464, std: 0.09399, params: {'n_estimators': 70}, mean: 0.88187, std: 0.09594, params: {'n_estimators': 80}, mean: 0.88027, std: 0.09573, params: {'n_estimators': 90}, mean: 0.87848, std: 0.09469, params: {'n_estimators': 100}, mean: 0.87903, std: 0.09579, params: {'n_estimators': 110}, mean: 0.87764, std: 0.09745, params: {'n_estimators': 120}]
+[2018-08-19 17:32:03,987]: best params: {'n_estimators': 60}
+[2018-08-19 17:32:03,987]: best scores: 0.8866997218951435
+[2018-08-19 17:32:03,987]: --------------------------------------------------------
