@@ -1274,26 +1274,26 @@ def get_model_parameter(model='rf', search=False):
         estimator = GradientBoostingClassifier(
             random_state=621,
             verbose=0,
-            learning_rate=0.2,
-            n_estimators=3400,
+            learning_rate=0.005,
+            n_estimators=1200,
             subsample=0.8,
-            max_features='sqrt',
+            max_features=11,
             min_samples_leaf=50,
-            min_samples_split=200,
-            max_depth=8
+            min_samples_split=190,
+            max_depth=4
         )
         param_grid = {
-            'n_estimators': [i for i in range(60, 121, 10)]
+            # 'n_estimators': [i for i in range(60, 121, 10)]
             # 'subsample': [.7, .75, .8, .85, .9]
-            # 'max_features': [i for i in range(8, 25, 2)]
+            # 'max_features': [i for i in range(8, 21, 2)]
             # 'min_samples_leaf': [i for i in range(1, 91, 10)]
             # 'min_samples_leaf': [i for i in range(81, 162, 10)]
             # 'min_samples_split': [i for i in range(22, 103, 10)]
             # 'max_depth': [i for i in range(5, 11)]
-            # 'max_depth': [1, 2, 3, 4, 5]
-            # 'min_samples_split': [i for i in range(80, 85)]
-            # 'min_samples_leaf': [20, 21, 22]
-            # 'max_feature': [23, 24, 25, 26, 27]
+            # 'max_depth': [4, 5, 6],
+            # 'min_samples_split': [190, 200, 210],
+            # 'min_samples_leaf': [45, 50, 55]
+            # 'max_feature': [10, 11]
         }
     elif model == 'xgb':
         estimator = XGBClassifier(
@@ -1332,7 +1332,10 @@ def get_model_parameter(model='rf', search=False):
         logging.info('--------------------------------------------------------')
 
         plt.figure(figsize=(16, 4))
-        xdata = list(param_grid.values())[0]
+        if len(param_grid.keys()) == 1:
+            xdata = list(param_grid.values())[0]
+        else:
+            xdata = [i for i in range(1, len(means) + 1)]
         plt.subplot(1, 2, 1)
         plt.title('Mean AUC on Validation')
         plt.plot(xdata, means)
@@ -1372,13 +1375,13 @@ def prediction(model='rf'):
     Submission['Proba'] = Y_pred_prob
     Submission.to_csv(model + '_preds.csv', index=False, header=False)
 
-    featureImportance = pd.Series(estimator.feature_importances_, index=X_train.columns).sort_values(ascending=False)
-    featureImportance.to_csv(model + '_featureImportance.csv')
-    plt.figure()
-    featureImportance.plot(kind='bar', title='Feature Importance')
-    plt.xlabel('Features')
-    plt.ylabel('Feature Importance Score')
-    plt.savefig(model + '_featureImportance.png')
+    # featureImportance = pd.Series(estimator.feature_importances_, index=X_train.columns).sort_values(ascending=False)
+    # featureImportance.to_csv(model + '_featureImportance.csv')
+    # plt.figure()
+    # featureImportance.plot(kind='bar', title='Feature Importance')
+    # plt.xlabel('Features')
+    # plt.ylabel('Feature Importance Score')
+    # plt.savefig(model + '_featureImportance.png')
 
 
 if __name__ == '__main__':
@@ -1398,6 +1401,6 @@ if __name__ == '__main__':
     # print(dataset1.shape, dataset2.shape, dataset3.shape)
     # analyze_dataset()
 
-    estimator = get_model_parameter(model='gbdt', search=True)
+    # estimator = get_model_parameter(model='gbdt', search=True)
     # training(model='gbdt')
-    # prediction(model='gbdt')
+    prediction(model='gbdt')
