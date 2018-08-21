@@ -965,7 +965,7 @@ def get_offline_feature(dataset, feature):
     t = t[t.last_consume != 'null']
     t['o15'] = t.Date_received.astype('str') + ':' + t.last_consume.astype('str')
     t.o15 = t.o15.apply(get_date_gap)
-    dataset = pd.merge(dataset, t[['User_id', 'o15']], how='left', on='User_id')
+    dataset = pd.merge(dataset, t[['User_id', 'Date_received', 'o15']], how='left', on=['User_id', 'Date_received'])
 
     # # 最近一次优惠券消费到当前领券的时间间隔
     # # o16
@@ -978,7 +978,7 @@ def get_offline_feature(dataset, feature):
     t = t[t.last_consume != 'null']
     t['o16'] = t.Date_received.astype('str') + ':' + t.last_consume.astype('str')
     t.o16 = t.o16.apply(get_date_gap)
-    dataset = pd.merge(dataset, t[['User_id', 'o16']], how='left', on='User_id')
+    dataset = pd.merge(dataset, t[['User_id', 'Date_received', 'o16']], how='left', on=['User_id', 'Date_received'])
 
     del t, t1, consume_use_coupon, consume_common, receive_coupon_not_consume, receive_coupon, consume
     print('...get offline feature complete...')
@@ -1095,6 +1095,9 @@ def get_dataset():
 
     dataset3 = get_offline_feature(dataset3, off_feature3)
     dataset3 = get_online_feature(dataset3, on_feature3)
+    
+    # dataset3去重
+    dataset3.drop_duplicates(inplace=True)
 
     Submission = dataset3[['User_id', 'Coupon_id', 'Date_received']]
 
@@ -1131,21 +1134,6 @@ def get_dataset():
     dataset3.Distance = dataset3.Distance.astype(int)
     dataset3.Distance.replace(-999, np.nan, inplace=True)
 
-    # # 填充缺失值
-    # # 填0的
-    # fill_zero_columns = ['u6', 'u7', 'u11', 'u12', 'u15', 'u22', 'u24', 'u25', 'u30',
-    #                      'uc1', 'uc2', 'um4', 'um5', 'um6', 'um9', 'um10', 'um11', 'um12', 'ud1',
-    #                      'ud2', 'ud3', 'm1', 'm2', 'm3', 'm4', 'm6', 'm12', 'm13',
-    #                      'm16', 'm17', 'c1', 'c2', 'c4', 'c7', 'c9', 'on_u1',
-    #                      'on_u8']
-    # dataset1[fill_zero_columns].fillna(0, inplace=True)
-    # dataset2[fill_zero_columns].fillna(0, inplace=True)
-    # dataset3[fill_zero_columns].fillna(0, inplace=True)
-    # # 其他填-999
-    # dataset1.fillna(-999, inplace=True)
-    # dataset2.fillna(-999, inplace=True)
-    # dataset3.fillna(-999, inplace=True)
-
     print('...get dataset complete...')
 
     return dataset1, dataset2, dataset3, Submission
@@ -1163,6 +1151,7 @@ def read_dataset():
         dataset3 = pd.read_csv(dataset3_path)
         Submission = pd.read_csv(Submission_path)
 
+        print(dataset1.shape, dataset2.shape, dataset3.shape, Submission.shape)        
         print('...read dataset complete...')
 
         return dataset1, dataset2, dataset3, Submission
@@ -1175,6 +1164,7 @@ def read_dataset():
             dataset3.to_csv(dataset3_path, index=False)
             Submission.to_csv(Submission_path, index=False)
 
+        print(dataset1.shape, dataset2.shape, dataset3.shape, Submission.shape)
         print('...read dataset complete...')
 
         return dataset1, dataset2, dataset3, Submission
@@ -1212,15 +1202,6 @@ def analyze_dataset():
 
 def get_model_input(model='gbdt', set_param=False, train=False, pred=False):
     dataset1, dataset2, dataset3, Submission = read_dataset()
-    # # 去除dataset1, dataset2中相同的行
-    # dataset1.drop_duplicates(inplace=True)
-    # dataset2.drop_duplicates(inplace=True)
-
-    drop_columns = ['u16', 'weekday_1', 'u33', 'u32', 'weekday_5', 'weekday_3', 'on_u10', 'on_u12', 'on_u9']
-    # drop_columns = ['u26', 'm21', 'on_u6', 'weekday_4', 'weekday_7', 'on_u8', 'u21', 'u31', 'weekday_2', 'weekday_6', 'u16', 'weekday_1', 'u33', 'u32', 'weekday_5', 'weekday_3', 'on_u10', 'on_u12', 'on_u9']
-    dataset1.drop(columns=drop_columns, inplace=True)
-    dataset2.drop(columns=drop_columns, inplace=True)
-    dataset3.drop(columns=drop_columns, inplace=True)
 
     if model != 'xgb':
         # 如果模型不是xgb填充-999
@@ -1273,25 +1254,25 @@ def get_model_parameter(model='rf', search=False):
     elif model == 'gbdt':
         estimator = GradientBoostingClassifier(
             random_state=621,
-            verbose=0,
-            learning_rate=0.005,
-            n_estimators=1200,
-            subsample=0.8,
+            verbose=1,
+            learning_rate=0.05,
+            n_estimators=240,
+            subsample=0.7,
             max_features=11,
             min_samples_leaf=50,
             min_samples_split=190,
-            max_depth=4
+            max_depth=9
         )
         param_grid = {
-            # 'n_estimators': [i for i in range(60, 121, 10)]
+            # 'n_estimators': [i for i in range(60, 81, 10)]
             # 'subsample': [.7, .75, .8, .85, .9]
-            # 'max_features': [i for i in range(8, 21, 2)]
+            # 'max_features': [i for i in range(9, 14)]
             # 'min_samples_leaf': [i for i in range(1, 91, 10)]
             # 'min_samples_leaf': [i for i in range(81, 162, 10)]
             # 'min_samples_split': [i for i in range(22, 103, 10)]
             # 'max_depth': [i for i in range(5, 11)]
-            # 'max_depth': [4, 5, 6],
-            # 'min_samples_split': [190, 200, 210],
+            # 'max_depth': [9, 10, 11]
+            # 'min_samples_split': [185, 190, 195],
             # 'min_samples_leaf': [45, 50, 55]
             # 'max_feature': [10, 11]
         }
@@ -1375,13 +1356,13 @@ def prediction(model='rf'):
     Submission['Proba'] = Y_pred_prob
     Submission.to_csv(model + '_preds.csv', index=False, header=False)
 
-    # featureImportance = pd.Series(estimator.feature_importances_, index=X_train.columns).sort_values(ascending=False)
-    # featureImportance.to_csv(model + '_featureImportance.csv')
-    # plt.figure()
-    # featureImportance.plot(kind='bar', title='Feature Importance')
-    # plt.xlabel('Features')
-    # plt.ylabel('Feature Importance Score')
-    # plt.savefig(model + '_featureImportance.png')
+    featureImportance = pd.Series(estimator.feature_importances_, index=X_train.columns).sort_values(ascending=False)
+    featureImportance.to_csv(model + '_featureImportance.csv')
+    plt.figure()
+    featureImportance.plot(kind='bar', title='Feature Importance')
+    plt.xlabel('Features')
+    plt.ylabel('Feature Importance Score')
+    plt.savefig(model + '_featureImportance.png')
 
 
 if __name__ == '__main__':
@@ -1402,5 +1383,5 @@ if __name__ == '__main__':
     # analyze_dataset()
 
     # estimator = get_model_parameter(model='gbdt', search=True)
-    # training(model='gbdt')
-    prediction(model='gbdt')
+    training(model='gbdt')
+    # prediction(model='gbdt')
