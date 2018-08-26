@@ -34,7 +34,7 @@
 | _16      | 在 _13 基础上，删除15个特征                                           |            |
 | _17      | 根据 wepon season2 重新特征工程 n_estimators=2500                     | 0.78418392 |
 | _18      | _17 取消去重，支队weekday独热编码                                     | 0.78980504 |
-| _19      | Andy 114个特征，n_estimators=80                                       |            |
+| _19      | Andy 114个特征，n_estimators=80                                       | 0.79419035 |
 
 ## rf_preds
 
@@ -43,16 +43,26 @@
 | _1       | wepon特征工程中的基本特征 + 所有的other_feature + 线上特征除了 on_u11        | 0.78096180 |
 | _2       | 调参顺序：max_depth -> min_samples_split -> min_samples_leaf                 | 0.77985640 |
 | _3       | 使用所有的特征，调参顺序：min_samples_leaf -> min_samples_split -> max_depth | 0.78800338 |
+| _4       | o2o-v2, n_estimators=80                                                      |            |
 
 ## stk_preds
 
 | versions | details                      | Score      |
 | -------- | ---------------------------- | ---------- |
 | _1       | xgb_4 + gbdt_1 逻辑回归 C=10 | 0.50000000 |
+| _2       | heamy.stack, gbdt, rf        |            |
+
+# blend
+
+| versions | details               | Score |
+| -------- | --------------------- | ----- |
+| _1       | heamy.blend, gbdt, rf |       |
 
 ## weighted
 
-| versions | details                  | Score      |
-| -------- | ------------------------ | ---------- |
-| _1       | 0.65*xgb_4 + 0.35*gbdt_1 | 0.79242147 |
-| _2       | 0.65*xgb_7 + 0.35*gbdt_4 | 0.75596624 |
+| versions | details                            | Score      |
+| -------- | ---------------------------------- | ---------- |
+| _1       | 0.65*xgb_4 + 0.35*gbdt_1           | 0.79242147 |
+| _2       | 0.65*xgb_7 + 0.35*gbdt_4           | 0.75596624 |
+| _3       | [gbdt, rf] [0.50003465 0.49996535] |            |
+

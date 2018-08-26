@@ -55,3 +55,10 @@
 [2018-08-26 02:25:23,500]: Estimator: gbdt
 [2018-08-26 02:25:23,500]: parameters: learning_rate=0.100, n_estimators=80, max_depth=12, min_samples_split=210, min_samples_leaf=60, max_features=sqrt, subsamples=0.80
 online auc: 
+[2018-08-26 11:02:11,419]: Model: rf
+[2018-08-26 11:02:11,434]: means: [0.88007133 0.88052436 0.88094831 0.88112964]
+[2018-08-26 11:02:11,434]: stds: [0.01177468 0.01156543 0.01140497 0.01132209]
+[2018-08-26 11:02:11,434]: scores: [mean: 0.88007, std: 0.01177, params: {'n_estimators': 40}, mean: 0.88052, std: 0.01157, params: {'n_estimators': 60}, mean: 0.88095, std: 0.01140, params: {'n_estimators': 80}, mean: 0.88113, std: 0.01132, params: {'n_estimators': 100}]
+[2018-08-26 11:02:11,434]: best params: {'n_estimators': 100}
+[2018-08-26 11:02:11,434]: best scores: 0.8811296399470666
+[2018-08-26 11:02:11,434]: --------------------------------------------------------

@@ -1,0 +1,49 @@
+[2018-08-26 15:35:06,458]: Calculating gbdt's fold #1
+[2018-08-26 15:36:09,284]: Internal Python error in the inspect module.
+Below is the traceback from this internal error.
+
+[2018-08-26 15:36:09,387]: 
+Unfortunately, your original traceback can not be constructed.
+
+[2018-08-26 15:37:20,296]: Calculating gbdt's fold #1
+[2018-08-26 15:37:20,296]: Calculating gbdt's fold #1
+[2018-08-26 15:41:33,916]: Calculating gbdt's fold #2
+[2018-08-26 15:41:33,916]: Calculating gbdt's fold #2
+[2018-08-26 15:46:06,097]: Calculating gbdt's fold #3
+[2018-08-26 15:46:06,097]: Calculating gbdt's fold #3
+[2018-08-26 15:50:38,123]: Calculating gbdt's fold #4
+[2018-08-26 15:50:38,123]: Calculating gbdt's fold #4
+[2018-08-26 15:54:52,841]: Calculating gbdt's fold #5
+[2018-08-26 15:54:52,841]: Calculating gbdt's fold #5
+[2018-08-26 15:58:43,867]: Calculating gbdt's test data
+[2018-08-26 15:58:43,867]: Calculating gbdt's test data
+[2018-08-26 16:04:34,410]: Calculating rf's fold #1
+[2018-08-26 16:04:34,410]: Calculating rf's fold #1
+[2018-08-26 16:06:07,964]: Calculating rf's fold #2
+[2018-08-26 16:06:07,964]: Calculating rf's fold #2
+[2018-08-26 16:07:42,984]: Calculating rf's fold #3
+[2018-08-26 16:07:42,984]: Calculating rf's fold #3
+[2018-08-26 16:09:17,972]: Calculating rf's fold #4
+[2018-08-26 16:09:17,972]: Calculating rf's fold #4
+[2018-08-26 16:10:54,842]: Calculating rf's fold #5
+[2018-08-26 16:10:54,842]: Calculating rf's fold #5
+[2018-08-26 16:12:30,897]: Calculating rf's test data
+[2018-08-26 16:12:30,897]: Calculating rf's test data
+[2018-08-26 16:56:31,743]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #1
+[2018-08-26 16:56:31,743]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #1
+[2018-08-26 16:56:31,743]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #1
+[2018-08-26 16:58:38,483]: Loading LinearRegression(bbfa0320af63f0fea554de944745f85b)'s validation results from cache.
+[2018-08-26 16:58:38,483]: Loading LinearRegression(bbfa0320af63f0fea554de944745f85b)'s validation results from cache.
+[2018-08-26 16:58:38,483]: Loading LinearRegression(bbfa0320af63f0fea554de944745f85b)'s validation results from cache.
+[2018-08-26 16:58:38,829]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #2
+[2018-08-26 16:58:38,829]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #2
+[2018-08-26 16:58:38,829]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #2
+[2018-08-26 16:58:38,896]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #3
+[2018-08-26 16:58:38,896]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #3
+[2018-08-26 16:58:38,896]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #3
+[2018-08-26 16:58:38,974]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #4
+[2018-08-26 16:58:38,974]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #4
+[2018-08-26 16:58:38,974]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #4
+[2018-08-26 16:58:39,058]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #5
+[2018-08-26 16:58:39,058]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #5
+[2018-08-26 16:58:39,058]: Calculating LinearRegression(bbfa0320af63f0fea554de944745f85b)'s fold #5
