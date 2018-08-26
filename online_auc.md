@@ -1,6 +1,6 @@
 ﻿# result
 
-## xgbst_preds
+## xgb
 
 | versions | details                                              | Score      |
 | -------- | ---------------------------------------------------- | ---------- |
@@ -12,7 +12,7 @@
 | _6       | _4 基础上，将n_estimators 从 2264 调整到 3500        | 0.79211301 |
 | _7       | wepon版本的xgb                                       | 0.79618767 |
 
-## gbdt_preds
+## gbdt
 
 | versions | details                                                               | Score      |
 | -------- | --------------------------------------------------------------------- | ---------- |
@@ -36,21 +36,21 @@
 | _18      | _17 取消去重，支队weekday独热编码                                     | 0.78980504 |
 | _19      | Andy 114个特征，n_estimators=80                                       | 0.79419035 |
 
-## rf_preds
+## rf
 
 | versions | details                                                                      | Score      |
 | -------- | ---------------------------------------------------------------------------- | ---------- |
 | _1       | wepon特征工程中的基本特征 + 所有的other_feature + 线上特征除了 on_u11        | 0.78096180 |
 | _2       | 调参顺序：max_depth -> min_samples_split -> min_samples_leaf                 | 0.77985640 |
 | _3       | 使用所有的特征，调参顺序：min_samples_leaf -> min_samples_split -> max_depth | 0.78800338 |
-| _4       | o2o-v2, n_estimators=80                                                      |            |
+| _4       | o2o-v2, n_estimators=80                                                      | 0.78058790 |
 
-## stk_preds
+## stack
 
 | versions | details                      | Score      |
 | -------- | ---------------------------- | ---------- |
 | _1       | xgb_4 + gbdt_1 逻辑回归 C=10 | 0.50000000 |
-| _2       | heamy.stack, gbdt, rf        |            |
+| _2       | heamy.stack, gbdt, rf        | 0.78868756 |
 
 # blend
 
