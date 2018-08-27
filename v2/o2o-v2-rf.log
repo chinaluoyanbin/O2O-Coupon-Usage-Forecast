@@ -44,3 +44,7 @@
 [2018-08-26 12:51:31,405]: parameters: n_estimators=80, max_depth=20, min_samples_split=60, min_samples_leaf=20, max_features=sqrt
 [2018-08-26 12:51:31,405]: Online AUC: 
 [2018-08-26 12:51:31,405]: oob_score: 0.9258628194764007
+[2018-08-27 02:08:01,920]: Estimator: rf
+[2018-08-27 02:08:01,921]: parameters: n_estimators=1800, max_depth=20, min_samples_split=60, min_samples_leaf=20, max_features=sqrt
+[2018-08-27 02:08:01,921]: Online AUC: 
+[2018-08-27 02:08:01,921]: oob_score: 0.9264597972762888
