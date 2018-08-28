@@ -14,6 +14,12 @@
 | _8       | Andy 114个特征，n_estimators=80                      |            |
 | _9       | Andy 114个特征，n_estimators=800                     |            |
 
+## lgbm
+
+| versions | details              | Score |
+| -------- | -------------------- | ----- |
+| _1       | v2, n_estimators=100 |       |
+
 ## gbdt
 
 | versions | details                                                               | Score      |
@@ -38,7 +44,8 @@
 | _18      | _17 取消去重，支队weekday独热编码                                     | 0.78980504 |
 | _19      | Andy 114个特征，n_estimators=80                                       | 0.79419035 |
 | _20      | Andy 114个特征，n_estimators=1800                                     | 0.78806719 |
-| _21      | Andy 114个特征，n_estimators=800                                      |            |
+| _21      | Andy 114个特征，n_estimators=800                                      | 0.79397811 |
+| _22      | Andy 114个特征，n_estimators=1600, learning_rate=0.005                |            |
 
 ## rf
 
@@ -49,7 +56,7 @@
 | _3       | 使用所有的特征，调参顺序：min_samples_leaf -> min_samples_split -> max_depth | 0.78800338 |
 | _4       | o2o-v2, n_estimators=80                                                      | 0.78058790 |
 | _5       | o2o-v2, n_estimators=1800                                                    | 0.78922544 |
-| _6       | o2o-v2, n_estimators=800                                                     |            |
+| _6       | o2o-v2, n_estimators=800                                                     | 0.78431941 |
 
 ## stack
 
