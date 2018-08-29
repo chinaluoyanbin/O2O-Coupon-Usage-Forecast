@@ -45,7 +45,13 @@
 | _19      | Andy 114个特征，n_estimators=80                                       | 0.79419035 |
 | _20      | Andy 114个特征，n_estimators=1800                                     | 0.78806719 |
 | _21      | Andy 114个特征，n_estimators=800                                      | 0.79397811 |
-| _22      | Andy 114个特征，n_estimators=1600, learning_rate=0.005                |            |
+| _22      | Andy 114个特征，n_estimators=1600, learning_rate=0.005                | 0.79807262 |
+| _23      | Andy 114个特征, n_estimators=160, learning_rate=0.05                  | 0.79167999 |
+| _24      | Andy 114个特征，n_estimators=1800, learning_rate=0.005                | 0.79589823 |
+| _25      | 在 _22 的基础上，删除重要度最低的 on_u9                               | 0.79382528 |
+| _26      | 在 _22 的基础上, n_estimators=1500, learning_rate=0.005               |            |
+| _27      | 在 _22 的基础上, n_estimators=2000, learning_rate=0.004               |            |
+
 
 ## rf
 
