@@ -1326,7 +1326,7 @@ def get_model_parameter(model='rf', search=False):
         logging.info('stds: %s' % stds)
         logging.info('scores: %s' % grid.grid_scores_)
         logging.info('best params: %s' % grid.best_params_)
-        logging.info('best scores: %s' % grid.best_score_)
+        logging.info('best scores: %s' % grid.  )
         logging.info('--------------------------------------------------------')
 
         plt.figure(figsize=(16, 4))
