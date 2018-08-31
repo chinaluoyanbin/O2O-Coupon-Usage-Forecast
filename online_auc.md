@@ -15,6 +15,7 @@
 | _9       | Andy 114个特征，n_estimators=800                       | 0.80246765 |
 | _10      | Andy 114个特征，n_estimators=1600, learning_rate=0.005 | 0.80029627 |
 | _11      | Andy 114个特征，n_estimators=900, learning_rate=0.01   |            |
+| _12      | Andy 114个特征，n_estimators=700, learning_rate=0.01   |            |
 
 ## lgbm
 
