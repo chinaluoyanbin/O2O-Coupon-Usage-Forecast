@@ -13,7 +13,7 @@
 | _7       | wepon版本的xgb                                         | 0.79618767 |
 | _8       | Andy 114个特征，n_estimators=80                        | 0.79806591 |
 | _9       | Andy 114个特征，n_estimators=800                       | 0.80246765 |
-| _10      | Andy 114个特征，n_estimators=1600, learning_rate=0.005 |            |
+| _10      | Andy 114个特征，n_estimators=1600, learning_rate=0.005 | 0.80029627 |
 | _11      | Andy 114个特征，n_estimators=900, learning_rate=0.01   |            |
 
 ## lgbm
@@ -52,7 +52,7 @@
 | _24      | Andy 114个特征，n_estimators=1800, learning_rate=0.005                | 0.79589823 |
 | _25      | 在 _22 的基础上，删除重要度最低的 on_u9                               | 0.79382528 |
 | _26      | 在 _22 的基础上, n_estimators=1500, learning_rate=0.005               | 0.79857178 |
-| _27      | 在 _22 的基础上, n_estimators=1875, learning_rate=0.004               |            |
+| _27      | 在 _22 的基础上, n_estimators=1875, learning_rate=0.004               | 0.79475290 |
 
 
 ## rf
@@ -88,3 +88,4 @@
 | _2       | 0.65*xgb_7 + 0.35*gbdt_4           | 0.75596624 |
 | _3       | [gbdt, rf] [0.50003465 0.49996535] | 0.79220698 |
 | _4       | [gbdt, rf] [0.5 0.5]               |            |
+| _5       | 0.65*xgb_9 + 0.35*gbdt_26          |            |
